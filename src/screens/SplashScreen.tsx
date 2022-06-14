@@ -1,19 +1,13 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React, {useEffect, useState} from 'react'
 import Colors from '@assets/colors/Colors'
+import logo from '@assets/image/logo.png';
 
 const SplashScreen = () => {
 
-//       const [showSplashScreen, setshowSplashScreen] = useState(true);
-//   useEffect(() => {
-//     setTimeout(() => {
-//       setshowSplashScreen(false);
-//     },4000)
-//   },[]);
-
   return (
     <View style={styles.mainContainer}>
-        <Image source={{}} />
+        <Image source={logo} style={styles.logo}/>
     </View>
   )
 }
@@ -26,5 +20,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    logo: {
+        height: 150,
+        width: 150,
     }
 })

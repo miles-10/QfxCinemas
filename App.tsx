@@ -1,12 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import DrawerNavigator from '@navigators/DrawerNavigator';
-import TopTabNavigator from '@navigators/TopTabNavigator';
+import DrawerNavigator from '@navigators/navigatorTypes/DrawerNavigator';
+import TopTabNavigator from '@navigators/navigatorTypes/TopTabNavigator';
+import Header from '@components/Header'
+import MyStack from '@navigators/MainStack';
 
 const App = () => {
   return (
-   <DrawerNavigator />
+    <MyStack />
+  //  <DrawerNavigator />
   //  <TopTabNavigator />
+  // <Header />
   )
 }
 
