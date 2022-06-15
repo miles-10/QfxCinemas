@@ -13,8 +13,8 @@ const card = ({title, urlToImage, navigation, id} : any) => {
     }
     return (
         <View style={styles.mainContainer}>
-            <TouchableOpacity style={styles.image} onPress={handleOnPress}>
-                <Image source={{uri: urlToImage}} />
+            <TouchableOpacity  onPress={handleOnPress}>
+                <Image style={styles.image} source={{uri: urlToImage}} />
                 <Text style={styles.text}>{title}</Text>
             </TouchableOpacity>
         </View>

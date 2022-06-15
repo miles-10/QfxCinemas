@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+export const baseUrl = `https://staging.qfxcinemas.com:2005/`;
+
 const Api = 'https://staging.qfxcinemas.com:2005/';
 
 export const GET = async(url:any) => {

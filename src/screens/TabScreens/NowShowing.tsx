@@ -3,12 +3,15 @@ import React, {FC, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { requestNowShowing } from '@services/redux/movie/NowShowing/showing.action';
 import Card from '@components/Card';
+import {baseUrl} from '@services/api/MovieApi';
 
 interface fiat {
   renderItem: any;
 }
-const NowShowing: FC<fiat> = () => {
 
+
+const NowShowing: FC<fiat> = () => {
+  
   const dispatch = useDispatch();
 
   const nowShowing = useSelector((state: any) => {
@@ -16,7 +19,7 @@ const NowShowing: FC<fiat> = () => {
     return state.nowShowing.nowShowing;
   });
 
-  // console.log('Title', nowShowing[0].name);
+  // console.log('Title', nowShowing[0].bannerUrl);
   useEffect(()=>{
     dispatch(requestNowShowing());
 
@@ -30,10 +33,10 @@ const NowShowing: FC<fiat> = () => {
           keyExtractor={(show, index) => 'key' + index}
           numColumns={2}
           renderItem={(show: any) => {
-          console.log('Checkit', show)
+          console.log('Checkit', show.item.thumbnailUrl)
             return(
               <Card 
-                urlToImage={show.item.bannerUrl}
+                urlToImage={`${baseUrl}${show.item.thumbnailUrl}`}
                 title={show.item.name}
               />
             )
@@ -46,4 +49,8 @@ const NowShowing: FC<fiat> = () => {
 
 export default NowShowing
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  flatList: {
+
+  }
+})
