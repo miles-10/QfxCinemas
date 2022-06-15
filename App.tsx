@@ -4,13 +4,17 @@ import DrawerNavigator from '@navigators/navigatorTypes/DrawerNavigator';
 import TopTabNavigator from '@navigators/navigatorTypes/TopTabNavigator';
 import Header from '@components/Header'
 import MyStack from '@navigators/MainStack';
+import store from '@services/redux/store';
+import { Provider } from 'react-redux';
 
 const App = () => {
   return (
+    <Provider store={store}>
     <MyStack />
-  //  <DrawerNavigator />
+  {/* //  <DrawerNavigator />
   //  <TopTabNavigator />
-  // <Header />
+  // <Header /> */}
+  </Provider>
   )
 }
 
