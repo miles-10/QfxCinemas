@@ -25,7 +25,6 @@ const App = ({navigation}: any) => {
 
   return (
     <>
-    {/* <Header> */}
       <Drawer.Navigator 
        initialRouteName="Home"
        screenOptions={{
@@ -41,7 +40,6 @@ const App = ({navigation}: any) => {
         <Drawer.Screen name="Locations" component={LocationWrapper} />
         <Drawer.Screen name="Support" component={SupportWrapper} />
       </Drawer.Navigator>
-      {/* </Header> */}
       </>
   );
 }
