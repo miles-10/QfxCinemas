@@ -10,10 +10,19 @@ import LoginScreen from '@screens/DrawerScreens/Login';
 import LocationsScreen from '@screens/DrawerScreens/Locations';
 import SupportScreen from '@screens/DrawerScreens/Support';
 import Header from '@components/Header';
+import HeaderWrapper from '@utility/hoc/HeaderWrapper';
+import HomeWrapper from '@components/Wrapper';
+import LocationWrapper from '@components/LocationWrapper';
+import SupportWrapper from '@components/SupportWrapper';
 
 const Drawer = createDrawerNavigator();
 
-export default function App({navigation}: any) {
+const App = ({navigation}: any) => {
+  
+  // const HomeHeader = HeaderWrapper(TopTabNavigator);
+  // const LoactionHeader = HeaderWrapper(LocationsScreen);
+  // const SupportHeader = HeaderWrapper(SupportScreen);
+
   return (
     <>
     {/* <Header> */}
@@ -27,12 +36,14 @@ export default function App({navigation}: any) {
         headerShown: false,
       }}>
         <Drawer.Screen name="Logo" component={LogoDisplayScreen} />
-        <Drawer.Screen name="Home" component={TopTabNavigator} />
+        <Drawer.Screen name="Home" component={HomeWrapper} />
         <Drawer.Screen name="Login" component={LoginScreen} />
-        <Drawer.Screen name="Locations" component={LocationsScreen} />
-        <Drawer.Screen name="Support" component={SupportScreen} />
+        <Drawer.Screen name="Locations" component={LocationWrapper} />
+        <Drawer.Screen name="Support" component={SupportWrapper} />
       </Drawer.Navigator>
       {/* </Header> */}
       </>
   );
 }
+
+export default App;

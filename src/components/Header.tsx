@@ -7,11 +7,11 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import Feather from 'react-native-vector-icons/Feather';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
-const Header = ({navigation, props}:any) => {
+const Header = ({navigation}:any) => {
   return (
     <Surface style={styles.header}>
         <View style={styles.view}>
-            {<TouchableOpacity onPress={()=> navigation.openDrawer()}>
+            {<TouchableOpacity onPress={()=> navigation.navigate('DrawerNavigator')}>
                 <Feather name="menu" size={24} color={Colors.iconColor}/>
             </TouchableOpacity>}
         </View>

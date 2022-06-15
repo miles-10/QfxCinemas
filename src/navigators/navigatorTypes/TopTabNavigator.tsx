@@ -5,9 +5,11 @@ import NowShowingScreen from '@screens/TabScreens/NowShowing';
 import CommingSoonScreen from '@screens/TabScreens/CommingSoon';
 import CinemasScreen from '@screens/TabScreens/Cinemas';
 
+
 const Tab = createMaterialTopTabNavigator();
 
- function MyTabs() {
+ const MyTabs= () => {
+
   return (
     <Tab.Navigator>
       <Tab.Screen name="NOW SHOWING" component={NowShowingScreen} />

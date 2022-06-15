@@ -18,8 +18,8 @@ useEffect(() => {
   return (
     <NavigationContainer>
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {showSplashScreen ? (
-      <Stack.Screen name="Home" component={SplashScreen} />) : null}
+        {/* {showSplashScreen ? (
+      <Stack.Screen name="Home" component={SplashScreen} />) : null} */}
       <Stack.Screen name="Notifications" component={DrawerNavigator} />
     </Stack.Navigator>
     </NavigationContainer>
