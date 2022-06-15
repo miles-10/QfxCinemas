@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, SafeAreaView } from 'react-native'
 import React from 'react'
 import Logo from '@assets/image/logo.png'
 import { Surface } from 'react-native-paper';
@@ -11,6 +11,7 @@ import { useNavigation } from '@react-navigation/native';
 const Header = () => {
 const navigation = useNavigation();
   return (
+    <SafeAreaView>
     <Surface style={styles.header}>
         <View style={styles.view}>
             {<TouchableOpacity onPress={()=> navigation.openDrawer()}>
@@ -26,6 +27,7 @@ const navigation = useNavigation();
             </TouchableOpacity>}
         </View>
     </Surface>
+    </SafeAreaView>
   )
 }
 
