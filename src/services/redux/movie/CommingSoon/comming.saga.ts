@@ -4,20 +4,21 @@ import {GET} from '../../../api/MovieApi';
 
 async function comingFetch () {
     const response = await GET('api/public/ComingSoon');
-    console.log('sagasoon', response);
     return response.data.data;
 }
 
+
 function* workcomingFetch(): any {
-    const comingSoon = yield call(comingFetch);
+    const commingSoon = yield call(comingFetch);
     yield put({
-        type: REQUEST_COMMINGSOON,
-        payload: comingSoon
+        type: RECEIVE_COMMINGSOON,
+        payload: commingSoon
     })
 }
 
+
 function* soonSaga() {
-    yield takeEvery(RECEIVE_COMMINGSOON, workcomingFetch);
+    yield takeEvery(REQUEST_COMMINGSOON, workcomingFetch);
 }
 
 export default soonSaga;

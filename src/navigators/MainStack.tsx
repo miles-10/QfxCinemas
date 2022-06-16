@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SplashScreen from '@screens/SplashScreen';
 import DrawerNavigator from '@navigators/navigatorTypes/DrawerNavigator';
 import { NavigationContainer } from '@react-navigation/native';
+import MovieScreen from '@screens/ShowDetails/MovieScreen';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ useEffect(() => {
         {/* {showSplashScreen ? (
       <Stack.Screen name="Home" component={SplashScreen} />) : null} */}
       <Stack.Screen name="Notifications" component={DrawerNavigator} />
+      <Stack.Screen name="MovieScreen" component={MovieScreen} />
     </Stack.Navigator>
     </NavigationContainer>
   );

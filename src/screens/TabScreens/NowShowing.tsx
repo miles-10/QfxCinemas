@@ -3,7 +3,7 @@ import React, {FC, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { requestNowShowing } from '@services/redux/movie/NowShowing/showing.action';
 import Card from '@components/Card';
-import {baseUrl} from '@services/api/MovieApi';
+import {Api} from '@services/api/MovieApi';
 
 interface fiat {
   renderItem: any;
@@ -15,8 +15,8 @@ const NowShowing: FC<fiat> = () => {
   const dispatch = useDispatch();
 
   const nowShowing = useSelector((state: any) => {
-    console.log('error check',state.nowShowing.nowShowing);
-    return state.nowShowing.nowShowing;
+    // console.log('error check',state.nowShowing.nowShowing);
+    return state.showing.nowShowing;
   });
 
   // console.log('Title', nowShowing[0].bannerUrl);
@@ -24,6 +24,7 @@ const NowShowing: FC<fiat> = () => {
     dispatch(requestNowShowing());
 
   },[])
+  
   return (
     <SafeAreaView>
       <View>
@@ -33,11 +34,11 @@ const NowShowing: FC<fiat> = () => {
           keyExtractor={(show, index) => 'key' + index}
           numColumns={2}
           renderItem={(show: any) => {
-          console.log('Checkit', show.item.thumbnailUrl)
             return(
               <Card 
-                urlToImage={`${baseUrl}${show.item.thumbnailUrl}`}
+                urlToImage={`${Api}${show.item.thumbnailUrl}`}
                 title={show.item.name}
+                eventRating={show.item.eventRating}
               />
             )
           }}

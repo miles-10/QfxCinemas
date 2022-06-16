@@ -10,7 +10,7 @@ const cinemasReducer = (state = initialState, action: {type: any, payload: any})
         case REQUEST_CINEMAS:
             return {...state, loading: true};
         case RECEIVE_CINEMAS: 
-            return {...state, const: action.payload};
+            return {...state, cinemas: action.payload};
         case RECEIVE_CINEMAS_SUCCESS:
             return {...state, loading: false};
         default: 

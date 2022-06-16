@@ -1,21 +1,27 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import React, { FC } from "react";
+import React, { FC } from "react"; 
+import { useNavigation } from '@react-navigation/native';
 
-// interface fiat {
-//     title: string;
-//     urlToImage: any;
-//     navigation: any;
-// }
+interface fiat {
+    title: string;
+    urlToImage: any;
+    eventRating: any;
+    id?: any;
+    companyid?: any;
+}
 
-const card = ({title, urlToImage, navigation, id} : any) => {
-    const handleOnPress = () => {
+const card: FC<fiat> = ({title, urlToImage, id, eventRating, companyid}) => {
+        const navigation = useNavigation(); 
+        const handleOnPress = () => {
+            return navigation.navigate('MovieScreen', {id});
+        }
 
-    }
     return (
         <View style={styles.mainContainer}>
             <TouchableOpacity  onPress={handleOnPress}>
                 <Image style={styles.image} source={{uri: urlToImage}} />
                 <Text style={styles.text}>{title}</Text>
+                <Text style={styles.text}>{eventRating}</Text>
             </TouchableOpacity>
         </View>
     )

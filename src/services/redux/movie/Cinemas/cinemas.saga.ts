@@ -4,7 +4,7 @@ import {GET} from '../../../api/MovieApi';
 
 async function cinemasFetch() {
     const response = await GET('api/public/Cinemas');
-    console.log('cinemas Saga', response);
+    console.log('cinemas Saga', response.data.data);
     return response.data.data;
 }
 
