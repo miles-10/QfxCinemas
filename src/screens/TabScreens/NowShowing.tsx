@@ -24,6 +24,7 @@ const NowShowing: FC<fiat> = () => {
     dispatch(requestNowShowing());
 
   },[])
+
   
   return (
     <SafeAreaView>
@@ -36,6 +37,7 @@ const NowShowing: FC<fiat> = () => {
           renderItem={(show: any) => {
             return(
               <Card 
+                id={show.item.eventID}
                 urlToImage={`${Api}${show.item.thumbnailUrl}`}
                 title={show.item.name}
                 eventRating={show.item.eventRating}

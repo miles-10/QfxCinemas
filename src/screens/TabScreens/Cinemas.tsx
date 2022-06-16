@@ -12,16 +12,15 @@ const Cinemas: FC<shows> = (props: any) => {
   const dispatch = useDispatch();
 
   const cinemas = useSelector((state: any) => {
-    // console.log('cinemas',state.cinema.cinemas);
+    console.log('cinemas',state.cinema.cinemas);
     return state.cinema.cinemas;
   });
 
-  // console.log('Title', nowShowing[0].bannerUrl);
   useEffect(()=>{
     dispatch(requestCinemas());
 
   },[])
-  
+  console.log('make',cinemas)
   return (
     <SafeAreaView>
       <View>
@@ -31,7 +30,7 @@ const Cinemas: FC<shows> = (props: any) => {
           keyExtractor={(show, index) => 'key' + index}
           numColumns={2}
           renderItem={(show: any) => {
-            console.log('check',show.item.showID);
+            console.log('check',show.item.events.showID);
             return(
               <>
               <Text>{show.item.theatreName}</Text>

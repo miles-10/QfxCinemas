@@ -12,7 +12,7 @@ const CommingSoon: FC<soon> = () => {
   const dispatch = useDispatch();
 
   const commingSoon = useSelector((state: any) => {
-    console.log('commingsoon',state.soon.commingSoon);
+    // console.log('commingsoon',state.soon.commingSoon);
     return state.soon.commingSoon;
   });
 
