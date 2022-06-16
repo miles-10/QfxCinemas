@@ -1,9 +1,9 @@
-import Header from '@components/CustomHeader/Header'
+import ScreenHeader from '@components/CustomHeader/ScreenHeader'
 import React from 'react'
 
 const wrapper = (Component: any) => ({props}: any ) => (
     <>
-    <Header />
+    <ScreenHeader />
     <Component {...props} />
     </>
 )

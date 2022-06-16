@@ -4,6 +4,7 @@ import SplashScreen from '@screens/SplashScreen';
 import DrawerNavigator from '@navigators/navigatorTypes/DrawerNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import MovieScreen from '@screens/ShowDetails/MovieScreen';
+import MovieDetailsWrapper from '@components/Wrapper/MovieDetailsWrapper';
 
 const Stack = createStackNavigator();
 

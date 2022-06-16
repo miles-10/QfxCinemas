@@ -4,11 +4,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import {requestNowShowing} from '@services/redux/movie/NowShowing/showing.action';
 import axios from 'axios';
 
-
-
 const MovieScreen = ({route}: any) => {
-  
   const [details, setDetails] = useState<any>();
+  const [link, setLink] = useState<any>();
 
   // const dispatch = useDispatch();
   // const Datas = useSelector((state: any) => {
@@ -16,29 +14,61 @@ const MovieScreen = ({route}: any) => {
   // });
 
   useEffect(() => {
-    // dispatch(requestNowShowing());
     if (route.params.id) {
       const response = getdata(route.params.id);
     }
-  }, [route.params?.id]);
+    if(route.params.data) {
+      setDetails(route.params.data);
+    }
+  }, [route.params?.id, route.params?.data]);
 
   const getdata = async (id: any) => {
-    const detail = await axios.get(`https://staging.qfxcinemas.com:2005/api/public/Event?=${id}`);
-    console.log('tt',detail.data.data);
+    const detail = await axios.get(
+      `https://staging.qfxcinemas.com:2005/api/public/Event?=${id}`,
+    );
+    // const detailss = detail.data.data.mediaPlayerTrailerURL;
     setDetails(detail.data.data);
+    // setLink(detailss);
   };
+
+  // console.log('de', link);
+
+  // function extractVideoID(){
+  //   var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+  //   var match = link.match(regExp);
+  //   if ( match && match[7].length == 11 ){
+  //       console.log('ss', match[7])
+  //       return match[7];
+
+  //   }else{
+  //       console.log("Could not extract video ID.");
+  //   }
+  //   console.log(match)
+  // }
+
+  
+
+  // console.log('math', match[2]);
+
   return (
     <SafeAreaView>
-    <View style={styles.mainContainer}>
-      <View style={styles.imageContainer}>
-        <Text style={styles.text}>{`${details?.name}(${details?.eventRating})`}</Text>
-        <Text style={styles.text}>{`Genre: ${details?.genre}`}</Text>
-        <Text style={styles.text}>{`Runtime:${details?.showLengthInMinutes}`}</Text>
-        <Text style={styles.text}>{`Cast:${details?.showLengthInMinutes}`}</Text>
-        <Text style={styles.text}>{`Director: ${details?.director}`}</Text>
-        <Text style={styles.text}>{`SYNOPSIS: ${details?.annotation}`}</Text>
+      <View style={styles.mainContainer}>
+        <View style={styles.imageContainer}>
+          <Text
+            style={
+              styles.titleText
+            }>{`${details?.name}(${details?.eventRating})`}</Text>
+          <Text style={styles.text}>{`Genre: ${details?.genre}`}</Text>
+          <Text
+            style={
+              styles.text
+            }>{`Runtime:${details?.showLengthInMinutes}`}</Text>
+          <Text
+            style={styles.text}>{`Cast:${details?.showLengthInMinutes}`}</Text>
+          <Text style={styles.text}>{`Director: ${details?.director}`}</Text>
+          <Text style={styles.text}>{`SYNOPSIS: ${details?.annotation}`}</Text>
+        </View>
       </View>
-    </View>
     </SafeAreaView>
   );
 };
@@ -46,16 +76,14 @@ const MovieScreen = ({route}: any) => {
 export default MovieScreen;
 
 const styles = StyleSheet.create({
-  mainContainer: {
-
+  mainContainer: {},
+  imageContainer: {},
+  titleText: {
+    fontSize: 16,
+    fontWeight: 'bold',
   },
-imageContainer: {
-
-},
-image: {
-
-},
-text: {
-
-}
+  text: {
+    fontSize: 12,
+    fontWeight: '500',
+  },
 });

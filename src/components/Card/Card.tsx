@@ -2,18 +2,25 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React, { FC } from "react"; 
 import { useNavigation } from '@react-navigation/native';
 
+
 interface fiat {
-    title: string;
-    urlToImage: any;
-    eventRating: any;
-    id?: any;
+    title?: string;
+    urlToImage?: any;
+    eventRating?: any;
+    id: any;
     companyid?: any;
+    data?: any;
 }
 
-const card: FC<fiat> = ({title, urlToImage, id, eventRating, companyid}) => {
-        const navigation = useNavigation(); 
+
+const card: FC<fiat> = (props : any) => {
+        const { 
+            title, urlToImage, id, eventRating, companyid, data
+        } = props;
+
+        const navigation: any = useNavigation(); 
         const handleOnPress = () => {
-            return navigation.navigate('MovieScreen', {id});
+            return navigation.navigate('MovieScreen', {id, data});
         }
 
     return (

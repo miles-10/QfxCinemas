@@ -9,11 +9,11 @@ import TopTabNavigator from '@navigators/navigatorTypes/TopTabNavigator';
 import LoginScreen from '@screens/DrawerScreens/Login';
 import LocationsScreen from '@screens/DrawerScreens/Locations';
 import SupportScreen from '@screens/DrawerScreens/Support';
-import Header from '@components/Header';
+import Header from '@components/CustomHeader/Header';
 import HeaderWrapper from '@utility/hoc/HeaderWrapper';
-import HomeWrapper from '@components/Wrapper';
-import LocationWrapper from '@components/LocationWrapper';
-import SupportWrapper from '@components/SupportWrapper';
+import HomeWrapper from '@components/Wrapper/Wrapper';
+import LocationWrapper from '@components/Wrapper/LocationWrapper';
+import SupportWrapper from '@components/Wrapper/SupportWrapper';
 
 const Drawer = createDrawerNavigator();
 

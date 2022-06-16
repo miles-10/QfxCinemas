@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, FlatList, SafeAreaView } from 'react-native'
 import React, {FC, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { requestNowShowing } from '@services/redux/movie/NowShowing/showing.action';
-import Card from '@components/Card';
+import Card from '@components/Card/Card';
 import {Api} from '@services/api/MovieApi';
 
 interface fiat {
