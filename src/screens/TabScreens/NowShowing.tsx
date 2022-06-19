@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {requestNowShowing} from '@services/redux/movie/NowShowing/showing.action';
 import Card from '@components/Card/Card';
 import {Api} from '@services/api/MovieApi';
-import Colors from '@assets/colors/Colors'
+import Colors from '@assets/colors/Colors';
 
 interface fiat {
   renderItem: any;
@@ -55,6 +55,6 @@ export default NowShowing;
 
 const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: Colors.background
+    backgroundColor: Colors.background,
   },
 });

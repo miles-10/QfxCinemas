@@ -17,20 +17,20 @@ const CustomButton: FC<button> = ({text, onPress}) => {
 export default CustomButton;
 
 const styles = StyleSheet.create({
-    btnStyle: {
-        marginTop: 20,
-        height: 50,
-        backgroundColor: Colors.drawerImage,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 10,
-        width: '80%',
-        alignSelf: 'center',
-    },
-    textStyle: {
-        fontSize: 20,
-        textTransform: 'uppercase',
-        fontWeight: '400',
-        color: '#FFFFFF',
-    },
+  btnStyle: {
+    marginTop: 20,
+    height: 50,
+    backgroundColor: Colors.drawerImage,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+    width: '80%',
+    alignSelf: 'center',
+  },
+  textStyle: {
+    fontSize: 20,
+    textTransform: 'uppercase',
+    fontWeight: '400',
+    color: '#FFFFFF',
+  },
 });

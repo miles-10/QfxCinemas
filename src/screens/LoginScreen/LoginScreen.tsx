@@ -5,51 +5,65 @@ import Button from '@components/Button/Button';
 import InputText from '@components/InputText/InputText';
 import Colors from '@assets/colors/Colors';
 import Feather from 'react-native-vector-icons/Feather';
-import SimpleIcons from 'react-native-vector-icons/SimpleLineIcons'
-import { AuthContext } from '@components/context/AuthContext';
+import SimpleIcons from 'react-native-vector-icons/SimpleLineIcons';
+import {AuthContext} from '@components/context/AuthContext';
 
 const LoginScreen = ({title}: any) => {
-
   const {login} = useContext(AuthContext);
-const [data, setData] = useState({
-  username: '',
-  password: '',
-})
- 
+  const [data, setData] = useState({
+    username: '',
+    password: '',
+  });
+
   return (
     <SafeAreaView>
-    <View style={styles.container}>
-      <View style={styles.logoimage}>
-        <Image source={Logo} style={styles.logo} />
-      </View>
-      <View style={styles.fistView}>
-      <InputText
-        icon={
-          <View>
-            <Feather style={styles.icon1} color='#000000' name ='at-sign' size={40}  /> 
-          </View>
-        }
-        value={data.username}
-        placeholder="Email/Mobile Number"
-        onChangeText={text => setData({...data, username: text})}
-      />
-      </View>
-      <View style={styles.secondView}>
-        <InputText
-          icon={
-            <View>
-               <SimpleIcons style={styles.icon1} color='#000000' name='key' size={40} />
-            </View>
-          }
-          value={data.password}
-          placeholder="Password"
-          secureTextEntry={true}
-          onChangeText={text => setData({...data, password: text})}
+      <View style={styles.container}>
+        <View style={styles.logoimage}>
+          <Image source={Logo} style={styles.logo} />
+        </View>
+        <View style={styles.fistView}>
+          <InputText
+            icon={
+              <View>
+                <Feather
+                  style={styles.icon1}
+                  color="#000000"
+                  name="at-sign"
+                  size={40}
+                />
+              </View>
+            }
+            value={data.username}
+            placeholder="Email/Mobile Number"
+            onChangeText={text => setData({...data, username: text})}
+          />
+        </View>
+        <View style={styles.secondView}>
+          <InputText
+            icon={
+              <View>
+                <SimpleIcons
+                  style={styles.icon1}
+                  color="#000000"
+                  name="key"
+                  size={40}
+                />
+              </View>
+            }
+            value={data.password}
+            placeholder="Password"
+            secureTextEntry={true}
+            onChangeText={text => setData({...data, password: text})}
+          />
+        </View>
+
+        <Button
+          onPress={() => {
+            login(data);
+          }}
+          text="LOGIN"
         />
-         </View>
-       
-        <Button onPress={()=>{login(data)}} text="LOGIN" />
-    </View>
+      </View>
     </SafeAreaView>
   );
 };
@@ -81,10 +95,9 @@ const styles = StyleSheet.create({
   },
   secondView: {
     marginBottom: 10,
-  }, 
-  icon1 :{
+  },
+  icon1: {
     left: 14,
     marginTop: 12,
-  }
+  },
 });
-

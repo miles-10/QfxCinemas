@@ -32,7 +32,6 @@ const card: FC<fiat> = ({
   annotation,
   bannerUrl,
 }) => {
-
   const navigation: any = useNavigation();
   const handleOnPress = () => {
     return navigation.navigate('MovieDetailsWrapper', {
@@ -70,7 +69,6 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   image: {
- 
     flex: 1,
     width: 180,
     height: 250,

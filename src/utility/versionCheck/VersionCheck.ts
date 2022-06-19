@@ -5,7 +5,6 @@ import baseUrl from '@services/api/baseurlApi';
 
 import axios from 'axios';
 import Pkg from '../../../package.json';
-import SplashScreen from '@screens/SplashScreen';
 
 const appVersion = Pkg.version;
 

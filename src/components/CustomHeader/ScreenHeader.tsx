@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, Image, SafeAreaView} from 'react-native';
+import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
 import React from 'react';
 import {Surface} from 'react-native-paper';
 import Colors from '@assets/colors/Colors';
