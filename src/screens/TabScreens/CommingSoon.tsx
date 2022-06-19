@@ -1,9 +1,17 @@
-import { StyleSheet, Text, View,FlatList, Image, SafeAreaView} from 'react-native'
-import React,{FC, useEffect} from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { requestCommingSoon } from '@services/redux/movie/CommingSoon/comming.action';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Image,
+  SafeAreaView,
+} from 'react-native';
+import React, {FC, useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {requestCommingSoon} from '@services/redux/movie/CommingSoon/comming.action';
 import Card from '@components/Card/Card';
 import {Api} from '@services/api/MovieApi';
+import Colors from '@assets/colors/Colors';
 
 interface soon {
   renderItem: any;
@@ -15,41 +23,45 @@ const CommingSoon: FC<soon> = () => {
     return state.soon.commingSoon;
   });
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(requestCommingSoon());
-  },[])
+  }, []);
 
-  
-  
   return (
     <SafeAreaView>
-      <View>
-        <FlatList 
-          style={styles.flatList}
+      <View style={styles.mainContainer}>
+        <FlatList
           data={commingSoon}
           keyExtractor={(show, index) => 'key' + index}
           numColumns={2}
           renderItem={(show: any) => {
-            return(
-              <Card 
-                id={show.item.eventID??show.item.id}
+            return (
+              <Card
+                id={show.item.id}
                 urlToImage={`${Api}${show.item.thumbnailUrl}`}
                 title={show.item.name}
                 eventRating={show.item.eventRating}
-                data={show.item}
+                mediaPlayerTrailerURL={show.item.mobileTrailerURL}
+                genre={show.item.genre}
+                showLengthInMinutes={show.item.showLengthInMinutes}
+                director={show.item.director}
+                cast={show.item.cast}
+                annotation={show.item.annotation}
+                companyid={show.item.theatreID}
               />
-            )
+            );
           }}
         />
       </View>
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default CommingSoon
+export default CommingSoon;
 
 const styles = StyleSheet.create({
-  flatList: {
-
+  mainContainer: {
+    backgroundColor: Colors.background,
+    height: '100%',
   },
-})
+});

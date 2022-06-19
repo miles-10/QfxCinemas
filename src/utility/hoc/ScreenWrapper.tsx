@@ -1,11 +1,11 @@
-import ScreenHeader from '@components/CustomHeader/ScreenHeader'
-import React from 'react'
+import ScreenHeader from '@components/CustomHeader/ScreenHeader';
+import React from 'react';
 
-const wrapper = (Component: any) => ({props}: any ) => (
-    <>
+const wrapper = ({children}: any) => (
+  <>
     <ScreenHeader />
-    <Component {...props} />
-    </>
-)
+    {children}
+  </>
+);
 
 export default wrapper;

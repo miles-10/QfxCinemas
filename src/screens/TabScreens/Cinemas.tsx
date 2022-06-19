@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { requestCinemas } from '@services/redux/movie/Cinemas/cinemas.action';
 import Card from '@components/Card/Card';
 import {Api} from '@services/api/MovieApi';
+import Colors from '@assets/colors/Colors';
 
 interface shows {
   renderItem: any;
@@ -22,29 +23,33 @@ const Cinemas: FC<shows> = (props: any) => {
   console.log('make',cinemas);
   return (
     <SafeAreaView>
-      <View>
+      <View style={styles.mainContainer}>
         {/* <Text>{cinemas.theatreName}</Text> */}
         <FlatList 
-          style={styles.flatList}
           data={cinemas}
           keyExtractor={(show, index) => 'key' + index}
           renderItem={(show: any) => {
             return(
               <>
-              <Text>{show.item.theatreName}</Text>
+              <Text style={styles.place}>{show.item.theatreName}</Text>
               <FlatList 
-              style={styles.flatList}
               data={show.item.events}
               keyExtractor={(showed, index) => 'key' + index}
               numColumns={2}
-              renderItem={(showed: any) => {
+              renderItem={(show: any) => {
                 return(
                   <Card 
-                  id={showed.item.eventId}
-                  companyid={showed.item.theatreId}
-                  urlToImage={`${Api}${showed.item.thumbnailUrl}`}
-                  title={showed.item.name}
-                  eventRating={showed.item.eventRating}
+                  id={show.item.eventID}
+                  urlToImage={`${Api}${show.item.thumbnailUrl}`}
+                  title={show.item.name}
+                  eventRating={show.item.eventRating}
+                  mediaPlayerTrailerURL={show.item.mediaLink}
+                  genre={show.item.genre}
+                  showLengthInMinutes={show.item.showLengthInMinutes}
+                  director={show.item.director}
+                  cast={show.item.cast}
+                  annotation={show.item.annotation}
+                  companyid={show.item.theatreID}
                   />
                 )
               }
@@ -62,7 +67,14 @@ const Cinemas: FC<shows> = (props: any) => {
 export default Cinemas
 
 const styles = StyleSheet.create({
-  flatList: {
-
+  mainContainer: {
+    backgroundColor: Colors.background,
+    height: '100%',
+  },
+  place: {
+    marginTop: 10,
+    marginBottom: 10,
+    fontSize: 18,
+    fontWeight: 'bold',
   }
 })

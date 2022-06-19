@@ -3,5 +3,13 @@ export default {
     secondary: '#ff7f00',
     iconColor: '#33d3ee',
     danger: '',
-    success: ''
+    success: '',
+    circle: '#eae8e9',
+    drawer: '#fafafa',
+    drawerImage: '#bdbdbd',
+    drawerTop: '#838383',
+    drawerDown: '#cccacb',
+    background: '#ababab',
+    activeTintColor: '#048a9d',
+    inactiveTintColor: '#000000',
 }

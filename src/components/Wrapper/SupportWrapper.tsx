@@ -1,17 +1,16 @@
 import React, {useMemo} from 'react';
 
 import SupportScreen from '@screens/DrawerScreens/Support';
-import HeaderWrapper from '@utility/hoc/HeaderWrapper';
+import ScreenWrapper from '@utility/hoc/ScreenWrapper';
 
-const SupportWrapper = () => {
-    const SupportHeader =useMemo(() => {
-        return HeaderWrapper(SupportScreen)
-      }, []) 
-    return(
-        <>
-        <SupportHeader />
-        </>
-    )
+const SupportWrapper = (props: any) => {
+   return(
+    <>
+    <ScreenWrapper>
+        <SupportScreen title={props.route.params} />
+    </ScreenWrapper>
+    </>
+   )
 }
 
 export default SupportWrapper;

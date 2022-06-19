@@ -7,7 +7,6 @@ const HomeWrapper = () => {
       return HeaderWrapper(TopTabNavigator)
     }, []) 
     return(
-        
         <>
         <HomeHeader />
         </>

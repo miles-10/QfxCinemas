@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 
-const Support = () => {
+const Support = (props: any) => {
 
   return (
     <View>

@@ -1,52 +1,27 @@
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, { useContext } from 'react';
-import YoutubeReg from '@utility/youtubeRegex/YoutubeReg';
-import {useNavigation} from '@react-navigation/native'
-import YoutubePlayer from 'react-native-youtube-iframe';
-import FontIcon from 'react-native-vector-icons/FontAwesome';
+import { SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 import Colors from '@assets/colors/Colors';
-import { AuthContext } from '@components/context/AuthContext';
 
-
-const MovieScreen = ({data}: any) => {
-  const {userInfo} = useContext(AuthContext);
-  const navigation: any = useNavigation();
-
-  const hanldleScreen = () => {
-    {userInfo ? navigation.navigate('Selection')
-    : navigation.navigate('Login')}
-  }
+const SelectionScreens = ({data}: any) => {
   const {
     title,
     annotation,
     eventRating,
-    mediaPlayerTrailerURL,
     showLengthInMinutes,
     cast,
     director,
-    companyid,
     genre,
+    bannerUrl,
   } = data;
-
-  const url = YoutubeReg(mediaPlayerTrailerURL);
+  
   return (
     <SafeAreaView>
       <View style={styles.mainContainer}>
-        <YoutubePlayer height={300} play={false} videoId={url} />
         <View style={styles.imageContainer}>
         <Text
             style={
               styles.titleText
             }>{`${title} (${eventRating})`}</Text>
-        <View style={styles.ticket}>
-         {companyid ? (<TouchableOpacity onPress={hanldleScreen}>
-            <View style={styles.wrap}>
-            <FontIcon name="ticket" size={22} />
-            </View>
-            <Text style={styles.ticketText}>Buy/Reserve Ticket</Text>
-          </TouchableOpacity>) : null}
-          </View>
-          </View>
           <View style={styles.textContainer}>
           <Text style={styles.text}>{`Genre: ${genre}`}</Text>
           <Text
@@ -61,13 +36,14 @@ const MovieScreen = ({data}: any) => {
             style={styles.text}>{`Director: ${director}`}</Text>
           <Text
             style={styles.text}>{`SYNOPSIS: ${annotation}`}</Text>
-    </View>
+            </View>
+            </View>
       </View>
     </SafeAreaView>
   );
 };
 
-export default MovieScreen;
+export default SelectionScreens;
 
 const styles = StyleSheet.create({
   mainContainer: {
