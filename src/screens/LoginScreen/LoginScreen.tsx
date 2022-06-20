@@ -7,6 +7,7 @@ import Colors from '@assets/colors/Colors';
 import Feather from 'react-native-vector-icons/Feather';
 import SimpleIcons from 'react-native-vector-icons/SimpleLineIcons';
 import {AuthContext} from '@components/context/AuthContext';
+import Toast from 'react-native-simple-toast';
 
 const LoginScreen = ({title}: any) => {
   const {login} = useContext(AuthContext);
@@ -15,14 +16,18 @@ const LoginScreen = ({title}: any) => {
     password: '',
   });
 
+  const usernameshowToast = () => {
+    Toast.show('Invalid Username or Password');
+  }
+  
   return (
     <SafeAreaView>
       <View style={styles.container}>
         <View style={styles.logoimage}>
           <Image source={Logo} style={styles.logo} />
         </View>
-        <View style={styles.fistView}>
-          <InputText
+       <View style={styles.fistView}>
+       <InputText
             icon={
               <View>
                 <Feather
@@ -39,7 +44,7 @@ const LoginScreen = ({title}: any) => {
           />
         </View>
         <View style={styles.secondView}>
-          <InputText
+        <InputText
             icon={
               <View>
                 <SimpleIcons
@@ -57,12 +62,17 @@ const LoginScreen = ({title}: any) => {
           />
         </View>
 
-        <Button
+        {data.username && data.password ? (<Button
           onPress={() => {
             login(data);
           }}
           text="LOGIN"
-        />
+        />) : (<Button
+        onPress={() => {
+          usernameshowToast();
+        }}
+        text="LOGIN"
+      />)}
       </View>
     </SafeAreaView>
   );

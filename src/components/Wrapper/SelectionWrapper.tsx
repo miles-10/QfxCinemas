@@ -7,7 +7,7 @@ const SelectionWrapper = (props: any) => {
   return (
     <>
       <ScreenWrapper>
-        <SelectionScreens title={props.route.params} />
+        <SelectionScreens title={props.route.title} data={props.route.params} />
       </ScreenWrapper>
     </>
   );

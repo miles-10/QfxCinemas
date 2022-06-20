@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   place: {
+    color: '#000000',
     marginTop: 10,
     marginBottom: 10,
     fontSize: 18,

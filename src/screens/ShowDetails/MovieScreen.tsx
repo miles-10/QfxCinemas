@@ -47,7 +47,7 @@ const MovieScreen = ({data}: any) => {
             {companyid ? (
               <TouchableOpacity onPress={hanldleScreen}>
                 <View style={styles.wrap}>
-                  <FontIcon name="ticket" size={22} />
+                  <FontIcon name="ticket" size={22} color="#000000" />
                 </View>
                 <Text style={styles.ticketText}>Buy/Reserve Ticket</Text>
               </TouchableOpacity>
@@ -86,11 +86,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 10,
     marginBottom: 10,
+    color:'#000000',
   },
   text: {
     fontSize: 14,
     fontWeight: '500',
     marginVertical: 3,
+    color: '#000000',
   },
   ticket: {
     flexDirection: 'row',
@@ -111,5 +113,6 @@ const styles = StyleSheet.create({
     fontSize: 10,
     marginLeft: 40,
     bottom: 22,
+    color: '#000000',
   },
 });

@@ -27,7 +27,7 @@ const ScreenHeader = () => {
                 : route.name === 'Support'
                 ? 'Support'
                 : route.name === 'Selection'
-                ? 'Selection'
+                ? 'Show Selection'
                 : route.params?.title}
             </Text>
           </View>
